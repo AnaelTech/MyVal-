@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Agents
+{% endblock %}
+
+{% block body %}
+	<section class="all-agents-title mt-3">
+		<div class="container">
+			<div class="text-center">
+				<h1>All agents</h1>
+			</div>
+		</div>
+	</section>
+	<section class="all-agents my-3 ">
+		<div class="container">
+			<div class="row d-flex">
+				{% for agent in agents %}
+					{% if agent is not null %}
+						<div class="col-lg-6">
+							{% include 'agents/card.html.twig' %}
+						</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+{% endblock %}

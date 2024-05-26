@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Search result
+{% endblock %}
+
+{% block body %}
+     {% if users is not empty %}
+        <ul>
+            {% for user in users %}
+                <table class="table align-middle mb-0 bg-white">
+                    <thead class="bg-light">
+                        <tr>
+                        <th>Name</th>
+                        <th>Team</th>
+                        <th>Show More</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        {% if user.profilPic is not null %}
+                        <td>
+                            <div class="d-flex align-items-center">
+                            <img
+                                src="/uploads/users/{{ user.profilPic }}"
+                                alt=""
+                                style="width: 45px; height: 45px"
+                                class="rounded-circle"
+                                />
+                            <div class="ms-3">
+                                <p class="fw-bold mb-1">{{ user.PseudoValo }}</p>
+                            </div>
+                            </div>
+                        </td>
+                        {% endif %}
+                        <td>
+                            <div class="d-flex align-items-center">
+                            <img
+                                src="https://www.josh-digital.com/wp-content/uploads/2019/05/Symfony-4-API-Platform-React.js-Full-Stack-Masterclass.jpg"
+                                alt=""
+                                style="width: 45px; height: 45px"
+                                class="rounded-circle"
+                                />
+                            <div class="ms-3">
+                                <p class="fw-bold mb-1">{{ user.PseudoValo }}</p>
+                            </div>
+                            </div>
+                        </td>
+                        {% if user.team is not null %}
+                        <td>
+                            <p class="fw-normal mb-1">{{ user.team.name }}</p>
+                        </td>
+                        {% endif %}
+                        <td>
+                            <p class="fw-normal mb-1">Pas de team</p>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-link btn-sm btn-rounded">
+                            Profil
+                            </button>
+                        </td>
+                        </tr>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div class="text-center mt-5">
+            <h1>Aucun utilisateur trouvé</h1>
+        </div>
+    {% endif %}
+{% endblock %}

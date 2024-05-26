@@ -1,0 +1,148 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil
+{% endblock %}
+
+{% block body %}
+	<section class="">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg mb-4 mb-sm-5">
+					<div class="card border-0">
+						<div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
+							<div class="row align-items-center">
+								<div class="col-lg-6 mb-4 mb-lg-0">
+									<img src="{{ UserStat.data.card.large }}" alt="banner-player" class="rounded img-fluid">
+								</div>
+								<div class="col-lg-6">
+									{% if app.user.profilPic == null %}
+										<div class="d-flex justify-content-center mb-4 h-50 w-50">
+											<img src="{{ UserStat.data.card.small }}" alt="" class="rounded-circle img-fluid">
+										</div>
+									{% else %}
+										<div class="d-flex justify-content-center mb-4 h-50 w-50">
+											<img src="/uploads/users/{{app.user.profilPic}}" alt="" class="rounded-circle img-fluid">
+										</div>
+									{% endif %}
+									<div class="d-flex justify-content-center">
+										<a class="btn btn-danger btn-lg" href="{{path('app_user_edit', {'id': app.user.id })}}" role="button">Edit</a>
+									</div>
+									<div class="mb-5 rounded">
+										<h2 class="h2 text-danger mb-0">{{ UserStat.data.name }}</h2>
+									</div>
+									<ul class="list-unstyled mb-1-9">
+										<li class="mb-2 mb-xl-3 display-28">
+											<span class="display-26 text-secondary me-2 font-weight-600">Région:</span>
+											{% if UserStat.data.region == "eu" %}
+												{# {{ UserStat.data.region }}#}
+												🇪🇺
+											{% endif %}
+										</li>
+										<li class="mb-2 mb-xl-3 display-28">
+											<span class="display-26 text-secondary me-2 font-weight-600">Level:</span>
+											{{ UserStat.data.account_level }}
+										</li>
+										{% if app.user.team is not null %}
+										<li class="mb-2 mb-xl-3 display-28">
+											<span class="display-26 text-secondary me-2 font-weight-600">Team:</span>
+											{{ app.user.team.name }}
+										</li>
+										{% endif %}
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section>
+		<div class="container py-5">
+			{% for History in Historys.data |slice(0, 5) %}
+				<div class="row justify-content-center mb-3">
+					<div class="col-lg">
+						<div class="card shadow-0 border rounded-3">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-lg">
+										<div class="bg-image hover-zoom ripple rounded ripple-surface">
+											{% for map in maps %}
+												{% if History.meta.map.name == map.name %}
+													<img src="{{map.image}}" alt="" class="img-fluid w-100">
+												{% endif %}
+											{% endfor %}
+											<a href="#!">
+												<div class="hover-overlay">
+													<div class="mask"></div>
+												</div>
+											</a>
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<h5>{{ History.meta.map.name }}</h5>
+										{#Nom de la Map#}
+										<div class="mt-1 mb-0 text-muted small">
+											<span>{{ History.meta.started_at|date("m/d/Y") }}</span>
+											<br>
+											{% if History.stats.team == "Red" %}
+												<span>Team : 🔴</span>
+											{% else %}
+												<span>Team : 🔵</span>
+											{% endif %}
+										</div>
+										<div class="mx-5 d-flex justify-content-between mt-4">
+											<span>
+												Agent:
+												{{ History.stats.character.name}}
+											</span>
+											<span>
+												Kills:
+												{{ History.stats.kills }}
+											</span>
+											<span>
+												Deaths:
+												{{ History.stats.deaths }}
+											</span>
+											<span>
+												Assist:
+												{{ History.stats.assists }}
+											</span>
+										</div>
+									</div>
+									{#Résultats du match #}
+									<div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
+										<h3 class="text-center">Score</h3>
+										<div class="d-flex flex-row align-items-center justify-content-center ">
+											<h4 class="mb-1 text-danger">{{ History.teams.red }}</h4>
+											<span class="mx-2">-</span>
+											<h4 class="mb-1 text-primary">
+												{{ History.teams.blue }}</h4>
+										</div>
+										<div class="d-flex flex-column mt-4 text-center">
+											{% if History.stats.team == "Red" %}
+												{% if History.teams.red > History.teams.blue %}
+													<h4>Win ✅</h4>
+												{% else %}
+													<h4>Lose ❌</h4>
+												{% endif %}
+											{% elseif History.stats.team == "Blue" %}
+												{% if History.teams.blue > History.teams.red %}
+													<h4>Win ✅</h4>
+												{% else %}
+													<h4>Lose ❌</h4>
+												{% endif %}
+											{% endif %}
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{# <img src="https://media.valorant-api.com/maps/7eaecc1b-4337-bbf6-6ab9-04b8f06b3319/premierbackgroundimage.png" alt=""> #}
+			{% endfor %}
+		</div>
+	</div>
+</section>{% endblock %}
