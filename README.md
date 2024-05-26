@@ -40,7 +40,7 @@ Voilà ce que j'ai utilisé pour ce projet :
 
 ![mysql](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
 
-![symfony](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=symfony&logoColor=white)
+![Symfony](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=symfony&logoColor=white)
 
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
 
