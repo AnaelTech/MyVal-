@@ -38,7 +38,7 @@ Je reste quand même satisfait de mon projet et pense le continuer en ajoutant d
 
 Voilà ce que j'ai utilisé pour ce projet : 
 
- ![mysql](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
+![mysql](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
 
 ![symfony](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=symfony&logoColor=white)
 
