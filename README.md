@@ -3,7 +3,7 @@
 Ceci est mon projet symfony, MyVal qui reprends les données de deux API afin d'avoir les données des agents voici celle-ci : https://valorant-api.com Et celle pour recupérer les données de utilisateurs avec leur Pseudo et tag voici l'autre : https://api.henrikdev.xyz/😁
 
 ## CONFIGURATION ⚙️
-```
+
 Vous trouverez dans le dossier DataFixtures des données pré-configurés
 
 Comme les images de maps, un user, ainsi que des images par défault
@@ -15,11 +15,11 @@ Si vous voulez avoir un aperçu sans vous inscrire voici les identifiants d'un u
 **_MP_**: test1234
 
 ## UPDATE NECESSAIRES 🔜
-
 - Mise en forme du Front 
 - Possibilité de delete des membres en tant que Admin de team 
-- Envoyer des demande  pour rejoindre une team 
+- Envoyer des demande par mail pour rejoindre une team 
 - Meilleure gestion des erreurs
+- Voir le profil d'un user après une recherche
 - Refactoriser
 
 ## BARRE DE RECHERCHE 🔎
@@ -31,7 +31,7 @@ J'ai du créer une barre de recherche accessible sur toute les pages de mon site
 Pour la récupération des donnée par l'api cela c'est plutôt bien passé ce qui a été plus compliqué c'etait de transformer ses données en une entity malgrés de nombreuses recherche je n'ai pas pu accomplir cela seul, avec l'aide mon formateur ( Merci Lucas 😂 ) j'ai pu voir par quelle procécédé passer et comprendre le principe de deserialize. 
 
 ## SATISFAIT DU RESULTAT 😊
-Je reste quand même satisfait de mon projet et pense le continuer en ajoutant du javascript par la suite ainsi que d'ameliorer la sécurité et le front 
+Je reste quand même satisfait de mon projet et pense le continuer en ajoutant du javascript par la suite ainsi que d'ameliorer la sécurité et le front.
 
 ## OUTILS 💻
 
