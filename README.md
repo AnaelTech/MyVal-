@@ -24,7 +24,7 @@ Si vous voulez avoir un aperçu sans vous inscrire voici les identifiants d'un u
 - Refactoriser
 
 ## BARRE DE RECHERCHE 🔎
-- [UseController.php: Traitement de la recherche](base.html.twig)
+- [UserController.php: Traitement de la recherche](base.html.twig)
   
 J'ai dû créer une barre de recherche accessible sur toutes les pages de mon site. J'ai donc décidé de créer un événement afin que la vue twig ne me renvoie pas d'erreur pour dire que le formulaire n'est pas connu. Avec cet eventsubscriber je renvoie le formulaire à toutes les vues, j'ai trouvé cela plutôt complexe et j'ai dû réaliser beaucoup de recherche sur celle-ci.
 
