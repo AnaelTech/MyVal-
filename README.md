@@ -1,6 +1,6 @@
 # BIENVENUE SUR MYVAL
 
-Ceci est mon projet symfony, MyVal qui reprends les données de deux API afin d'avoir les données des agents voici celles-ci : https://valorant-api.com Et celle pour recupérer les données de l'utilisateurs avec leur Pseudo et tag voici l'autre : https://api.henrikdev.xyz/😁
+Ceci est mon projet symfony, MyVal qui reprends les données de deux API afin d'avoir les données des agents voici celles-ci : https://valorant-api.com Et celle pour recupérer les données de l'utilisateurs avec leur Pseudo et tag voici l'autre : https://api.henrikdev.xyz/
 
 ## CONFIGURATION ⚙️
 
