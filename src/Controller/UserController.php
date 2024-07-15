@@ -2,14 +2,12 @@
 
 namespace App\Controller;
 
-use App\Entity\LogoDefaultTeam;
 use App\Entity\User;
 use App\Form\UserSearchType;
 use App\Repository\MapsRepository;
 use App\Repository\UserRepository;
 use App\Service\CallApiStat;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -37,7 +35,7 @@ class UserController extends AbstractController
         if ($user = $this->getUser()) {
             //dd($user);
             $User = $userRepository->find(['id' => $user]);
-            // dd($User);
+            //dd($User);
             $PseudoValo = $User->getPseudoValo();
             $tag = $User->getTag();
             $ProfilPic = $User->getProfilPic();
@@ -58,6 +56,7 @@ class UserController extends AbstractController
             'ProfilPic' => $ProfilPic,
         ]);
     }
+
     #[Route('/user/edit/{id}', name: 'app_user_edit')]
     public function edit(Request $request, EntityManagerInterface $em, User $user, SluggerInterface $slugger): Response
     {

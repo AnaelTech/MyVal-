@@ -24,7 +24,6 @@ class CallApiStat
                 'headers' => [
                     'Accept' => 'application/json',
                     'Authorization' => $_ENV['API_KEY'],
-                    // 'HDEV-fa35ccb0-d393-4b20-9523-86b6dbe92001'
                 ],
             ]
         );
