@@ -353,6 +353,14 @@ body{
   }
 }
 
+#agent-abilities img {
+  cursor: pointer;
+}
+
+#agent-abilities img:hover {
+  transform: scale(1.1);
+}
+
 /*** BTN LOGIN ***/
 
 #btn-valos {
@@ -462,3 +470,5 @@ body{
   margin-top: 50px;
 }
 
+
+/***RESULTS SEARCH ***/

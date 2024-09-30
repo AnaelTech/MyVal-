@@ -9,7 +9,7 @@
 			<div class="container">
 				<div class="row">
 					<!-- Colonne pour le texte et le logo -->
-					<div class="col-lg-6 text-start" id="agent-description">
+					<div class="col-lg-4 text-start" id="agent-description">
 						<h1>{{agent.displayName}}</h1>
 						<p class="text-white py-4">
 							{{agent.description}}
@@ -24,7 +24,7 @@
 						</div>
 					</div>
 					<!-- Colonne pour l'image du personnage -->
-					<div class="col-lg-6 d-flex justify-content-end">
+					<div class="col-lg-8 d-flex justify-content-end">
 						<img src="{{agent.bustPortrait}}" alt="{{agent.displayName}}" class="img-fluid" loading="lazy">
 					</div>
 				</div>
@@ -42,9 +42,11 @@
 							{% endfor %}
 						</div>
 					</div>
+					<!--- Au click de l'icône j'affiche le titre de l'ability et sa description -->
 					{# <div class="col-lg-6 d-flex justify-content-end">
 						{% for ability in agent.abilities %}
 							<p>{{ability.displayName}}</p>
+							<p>{{ability.description}}</p>
 						{% endfor %}
 					</div> #}
 				</div>	
