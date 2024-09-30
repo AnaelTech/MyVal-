@@ -38,7 +38,9 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('Register', SubmitType::class);
+            ->add('Register', SubmitType::class, [
+                'attr' => ['id' => 'btn-valo', 'class' => 'transparent']
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
