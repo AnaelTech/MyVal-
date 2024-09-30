@@ -1,12 +1,17 @@
 body{
   background-color: #1F1F1F!important;
-  h2, h1 {
+
+  h2{
     color: #ff4655;
     font-weight: 600;
     font-size: 42px;
   }
 
-
+  h1 {
+    color: #ff4655;
+    font-weight: 900;
+    font-size: 62px;
+  }
   
 }
 
@@ -300,7 +305,7 @@ body{
 
 }
 
-/*** CARD AGENT ***/
+/*** CARDS AGENT ***/
 
 #agent-card {
 
@@ -314,4 +319,37 @@ body{
   border: 1px solid whitesmoke;
 }
 
+}
+
+/*** AGENT ***/
+#agent-description {
+  margin: 150px 0;
+
+
+  .role-card {
+    width: 100px;
+    height: 100px;
+    background-color: #0e1014; /* Dark background */
+    border: 2px solid #ff4655; /* Red border */
+    border-radius: 8px; /* Rounded edges */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  /* Container for the icon */
+  .icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  /* Styling for the role text */
+  .role-title {
+    text-align: center;
+    color: #ffffff;
+  }
 }
