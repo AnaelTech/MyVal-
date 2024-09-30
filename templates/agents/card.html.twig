@@ -1,16 +1,24 @@
-<section class="mt-3">
+<section class="mt-3" id="agent-card">
   <div class="container">
     <div class="row d-flex">
       <div class="col-lg">
-          <div class="card shadow p-3 mb-5 bg-danger rounded">
+          <div class="card shadow p-3 mb-5rounded">
             <img src="{{ agent.bustPortrait }}" class="card-img-top"
-              alt="Hollywood Sign on The Hill" />
+              alt="Image agent {{ agent.displayName }}" loading="lazy">
             <div class="card-body text-center">
-              <h1 class="card-title text-center">{{ agent.displayName }}</h1>
+              <h1 class="card-title text-center text-white">{{ agent.displayName }}</h1>
               
-              <div class="btn-profil-agent">
-                <a class="btn btn-light btn-lg" href="{{path('app_agent', {'id': agent.uuid })}}" role="button">Show More</a>
-              </div>
+              <div id="btn-valo">
+							<a href="{{path('app_agent', {'id': agent.uuid })}}">
+								<p>
+								<span class="bg"></span>
+								<span class="base"></span>
+								<span class="text text-white">
+									Voir le profil agent
+								</span>
+								</p>
+							</a>
+						</div>
           </div>
       </div>
     </div>
