@@ -20,11 +20,35 @@ class SecurityController extends AbstractController
 
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
+
+        // Initialisation des messages d'erreur pour chaque champ
+        $emailError = null;
+        $passwordError = null;
+
+        if ($error) {
+            // Vérifiez si l'erreur concerne les identifiants invalides
+            if ($error->getMessageKey() === 'Invalid credentials.') {
+                $emailError = 'Email ou mot de passe incorrect.';
+            }
+            // Autres erreurs spécifiques
+            elseif ($error->getMessageKey() === 'Your email cannot be empty.') {
+                $emailError = 'Veuillez entrer un email.';
+            } elseif ($error->getMessageKey() === 'Your password cannot be empty.') {
+                $passwordError = 'Veuillez entrer votre mot de passe.';
+            }
+        }
+
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+        return $this->render('security/login.html.twig', [
+            'last_username' => $lastUsername,
+            'emailError' => $emailError,
+            'passwordError' => $passwordError,
+            'error' => $error,  // Erreur générale si besoin
+        ]);
     }
+
 
     #[Route(path: '/logout', name: 'app_logout')]
     public function logout(): void

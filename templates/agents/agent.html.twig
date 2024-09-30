@@ -31,32 +31,56 @@
 			</div>
 		</section>
 		<section class="my-4" id="agent-abilities">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6 d-flex justify-content-start">
-						<div class="text-center h-100">
-							{% for ability in agent.abilities %}
-								{% if ability.displayIcon is not null %}
-									<img src="{{ ability.displayIcon }}" class="img-fluid icon px-2 ability-icon" alt="{{ ability.displayName }}" loading="lazy">
-								{% endif %}
-							{% endfor %}
-						</div>
-					</div>
-					<!--- Au click de l'icône j'affiche le titre de l'ability et sa description -->
-					<div class="col-lg-6 d-flex justify-content-end text-white">
-						{% for ability in agent.abilities %}
-							<p class="d-none ability-name">{{ability.displayName}}</p>
-							<p class="d-none ability-description">{{ability.description}}</p>
-						{% endfor %}
-					</div>
-				</div>	
-			</div>
-		</section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 d-flex justify-content-start">
+                <div class="text-center h-100">
+                    {% for ability in agent.abilities %}
+                        {% if ability.displayIcon is not null %}
+                            <img src="{{ ability.displayIcon }}" 
+                                 class="img-fluid icon px-2 ability-icon" 
+                                 alt="{{ ability.displayName }}" 
+                                 loading="lazy"
+                                 data-ability-id="{{ loop.index0 }}" 
+                                 data-ability-name="{{ ability.displayName }}" 
+                                 data-ability-description="{{ ability.description }}">
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <!-- Display ability name and description dynamically on the right side -->
+            <div class="col-lg-6 d-flex justify-content-end text-white">
+                <div id="ability-info">
+                    <h3 id="ability-name">Cliquez sur une icône pour voir les détails</h3>
+                    <p id="ability-description"></p>
+                </div>
+            </div>
+        </div>    
+    </div>
+</section>
 
-	<script>
-			// Je dois vérifier si je récupère l'id du sort si j'ai l'id alors je pourrais afficher le nom et la description du sort
-	</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const abilityIcons = document.querySelectorAll('.ability-icon');
 
+        abilityIcons.forEach(icon => {
+            icon.addEventListener('click', function() {
+                const abilityName = this.getAttribute('data-ability-name');
+                const abilityDescription = this.getAttribute('data-ability-description');
+
+                document.getElementById('ability-name').textContent = abilityName;
+                document.getElementById('ability-description').textContent = abilityDescription;
+            });
+        });
+        // Événement pour afficher une confirmation avant de quitter
+        window.addEventListener('beforeunload', function (event) {
+            // Afficher un message de confirmation
+            event.preventDefault(); // Pour certains navigateurs, cela doit être appelé
+            event.returnValue = ''; // Un message générique sera affiché
+        });
+    });
+</script>
 </body>
 {% endblock %}
 
