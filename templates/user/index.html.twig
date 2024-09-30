@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block body %}
-	<section class="">
+	<section class="" id="profil-page">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg mb-4 mb-sm-5">
@@ -15,22 +15,22 @@
 								{# <div class="col-lg-6 mb-4 mb-lg-0">
 									<img src="{{ UserStat.data.card.large }}" alt="banner-player" class="rounded img-fluid">
 								</div> #}
-								</div> #}
+								</div> 
 								<div class="col-lg-6">
 									{% if app.user.profilPic == null %}
 										<div class="d-flex justify-content-center mb-4 h-50 w-50">
-											<img src="{{ UserStat.data.card.small }}" alt="" class="rounded-circle img-fluid">
+											<img src="{{ UserStat.data.card.small }}" alt="" class="rounded-circle img-fluid" loading="lazy">
 										</div>
 									{% else %}
 										<div class="d-flex justify-content-center mb-4 h-50 w-50">
-											<img src="/uploads/users/{{app.user.profilPic}}" alt="" class="rounded-circle img-fluid">
+											<img src="/uploads/users/{{app.user.profilPic}}" alt="" class="rounded-circle img-fluid" loading="lazy">
 										</div>
 									{% endif %}
 									<div class="d-flex justify-content-center">
 										<a class="btn btn-danger btn-lg" href="{{path('app_user_edit', {'id': app.user.id })}}" role="button">Edit</a>
 									</div>
 									<div class="mb-5 rounded">
-										<h2 class="h2 text-danger mb-0">{{ UserStat.data.name }}</h2>
+										<h2 class="h2 text-danger mb-0">{{ UserStat.data.name }} <span class="text-secondary">#{{app.user.tag}}</span></h2>
 									</div>
 									<ul class="list-unstyled mb-1-9">
 										<li class="mb-2 mb-xl-3 display-28">
@@ -40,7 +40,7 @@
 												🇪🇺
 											{% endif %}
 										</li>
-										<li class="mb-2 mb-xl-3 display-28">
+										<li class="mb-2 mb-xl-3 display-28 text-white">
 											<span class="display-26 text-secondary me-2 font-weight-600">Level:</span>
 											{{ UserStat.data.account_level }}
 										</li>
@@ -71,7 +71,7 @@
 										<div class="bg-image hover-zoom ripple rounded ripple-surface">
 											{% for map in maps %}
 												{% if History.meta.map.name == map.name %}
-													<img src="{{map.image}}" alt="" class="img-fluid w-100">
+													<img src="{{map.image}}" alt="" class="img-fluid w-100" loading="lazy">
 												{% endif %}
 											{% endfor %}
 											<a href="#!">

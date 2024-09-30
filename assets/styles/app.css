@@ -444,11 +444,21 @@ body{
 
 /*** LOGIN ***/
 
+/* #login body {
+  background: linear-gradient(90deg, rgba(189,199,209,1) 0%, rgba(229,143,85,1) 60%);
+} */
+
 #login {
   margin-top: 20px;
 }
 
-/* body {
-  background: linear-gradient(90deg, rgba(189,199,209,1) 0%, rgba(229,143,85,1) 60%);
-} */
+/*** PROFIL ***/
+
+#profil-page {
+  .card-body {
+    background-color: #1F1F1F;
+  }
+
+  margin-top: 50px;
+}
 

@@ -6,7 +6,7 @@
 <div class="text-center mt-4">
     <h1>Create your team</h1>
 </div>
-<section class="mt-4">
+<section class="mt-4 text-white">
     <div class="container">
     {{ form_start(form) }}
         <div class="row">
@@ -24,7 +24,19 @@
 					{{ form_row(form.name) }}
 				</div>
 		</div>
-        
+        <div class="form-group d-flex justify-content-center">
+                {# Désactivation du rendu automatique du bouton pour personnaliser le HTML #}
+                {{ form_widget(form.Register, {'attr': {'class': 'd-none'}}) }}
+
+                {# Bouton avec HTML personnalisé #}
+                <button type="submit" id="btn-valos" class="transparent">
+                    <p>
+                        <span class="bg"></span>
+                        <span class="base"></span>
+                        <span class="text">Register</span>
+                    </p>
+                </button>
+            </div>
     {{ form_end(form) }}
     </div>
 </section>
