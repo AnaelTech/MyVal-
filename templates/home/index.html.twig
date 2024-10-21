@@ -4,7 +4,16 @@
 {% endblock %}
 
 {% block body %}
-	<section class="section1">
+	<div id="loader">
+		<div class="load">
+			<p>
+				<span class="bg"></span>
+				<span class="base"></span>
+				<span class="text">Chargement... <span id="loading-percentage">0%</span></span>
+			</p>
+		</div>
+	</div>
+	<section class="section1" id="page-content-1" style="display: none;">
 		<div class="container-fluid">
 			<div class="row">
 				<img src="{{ asset('picture/valo-banner.webp')}}" alt="banner valorant" class="img-fluid object-fit-cover px-0 opacity-80" loading="lazy">
@@ -48,7 +57,7 @@
 
 		</div>
 	</section>
-	<section class="section3 my-5 text-center">
+	<section class="section3 my-5 text-center" id="page-content-2" style="display: none;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg">
@@ -65,5 +74,9 @@
 					</div>
 				</div>
 		</div>
-	</section>	
+	</section>
+	{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/loader.js') }}" defer></script>
+{% endblock %}
 {% endblock %}

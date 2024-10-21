@@ -1,86 +1,63 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Profil agents
-{% endblock %}
+{% block title %}Profil agents{% endblock %}
 
 {% block body %}
 <body>
-		<section class="my-3">
-			<div class="container">
-				<div class="row">
-					<!-- Colonne pour le texte et le logo -->
-					<div class="col-lg-4 text-start" id="agent-description">
-						<h1>{{agent.displayName}}</h1>
-						<p class="text-white py-4">
-							{{agent.description}}
-						</p>
-						<div class="role-card border-none rounded d-flex justify-content-start">
-							<div class="icon-container">
-							<img src="{{agent.role.displayIcon}}" alt="Logo {{agent.role.displayName}}" class="logo img-fluid pb-3" loading="lazy" width="24px" heigth="24px">
-							</div>
-							<div class="role-title">
-							<p>{{agent.role.displayName}}</p>
-						</div>
-						</div>
-					</div>
-					<!-- Colonne pour l'image du personnage -->
-					<div class="col-lg-8 d-flex justify-content-end">
-						<img src="{{agent.bustPortrait}}" alt="{{agent.displayName}}" class="img-fluid" loading="lazy">
-					</div>
-				</div>
-			</div>
-		</section>
-		<section class="my-4" id="agent-abilities">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 d-flex justify-content-start">
-                <div class="text-center h-100">
+    <section class="my-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 text-start" id="agent-description">
+                    <h1>{{ agent.displayName }}</h1>
+                    <p class="text-white py-4">
+                        {{ agent.description }}
+                    </p>
+                    <div class="role-card border-none rounded d-flex justify-content-start">
+                        <div class="icon-container">
+                            <img src="{{ agent.role.displayIcon }}" 
+                                 alt="Logo {{ agent.role.displayName }}" 
+                                 class="logo img-fluid pb-3" 
+                                 loading="lazy" width="24px" height="24px">
+                        </div>
+                        <div class="role-title">
+                            <p>{{ agent.role.displayName }}</p>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-lg-8 d-flex justify-content-end">
+                    <img src="{{ agent.bustPortrait }}" alt="{{ agent.displayName }}" 
+                         class="img-fluid" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="my-4" id="agent-abilities">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 d-flex justify-content-start flex-wrap">
                     {% for ability in agent.abilities %}
                         {% if ability.displayIcon is not null %}
-                            <img src="{{ ability.displayIcon }}" 
-                                 class="img-fluid icon px-2 ability-icon" 
-                                 alt="{{ ability.displayName }}" 
-                                 loading="lazy"
-                                 data-ability-id="{{ loop.index0 }}" 
-                                 data-ability-name="{{ ability.displayName }}" 
-                                 data-ability-description="{{ ability.description }}">
+                            <div class="card-ability mx-2 my-2">
+                                <div class="card">
+                                    <div class="front">
+                                        <img src="{{ ability.displayIcon }}" 
+                                             class="img-fluid icon" 
+                                             alt="{{ ability.displayName }}" 
+                                             loading="lazy">
+                                        <h4 class="ability-title">{{ ability.displayName }}</h4>
+                                    </div>
+                                    <div class="back">
+                                        <h4>{{ ability.displayName }}</h4>
+                                        <p>{{ ability.description }}</p>
+                                    </div>
+                                </div>
+                            </div>
                         {% endif %}
                     {% endfor %}
                 </div>
             </div>
-            
-            <!-- Display ability name and description dynamically on the right side -->
-            <div class="col-lg-6 d-flex justify-content-end text-white">
-                <div id="ability-info">
-                    <h3 id="ability-name">Cliquez sur une icône pour voir les détails</h3>
-                    <p id="ability-description"></p>
-                </div>
-            </div>
-        </div>    
-    </div>
-</section>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const abilityIcons = document.querySelectorAll('.ability-icon');
-
-        abilityIcons.forEach(icon => {
-            icon.addEventListener('click', function() {
-                const abilityName = this.getAttribute('data-ability-name');
-                const abilityDescription = this.getAttribute('data-ability-description');
-
-                document.getElementById('ability-name').textContent = abilityName;
-                document.getElementById('ability-description').textContent = abilityDescription;
-            });
-        });
-        // Événement pour afficher une confirmation avant de quitter
-        window.addEventListener('beforeunload', function (event) {
-            // Afficher un message de confirmation
-            event.preventDefault(); // Pour certains navigateurs, cela doit être appelé
-            event.returnValue = ''; // Un message générique sera affiché
-        });
-    });
-</script>
+        </div>
+    </section>
 </body>
 {% endblock %}
-

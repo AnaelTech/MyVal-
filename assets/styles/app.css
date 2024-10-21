@@ -1,3 +1,13 @@
+/* * {
+  outline: 2px solid red;
+} */
+
+html, body {
+  height: 100%; /* S'assure que la hauteur de la page prend toujours 100% */
+  margin: 0;
+  padding: 0;
+}
+
 body{
   background-color: #1F1F1F!important;
 
@@ -361,6 +371,57 @@ body{
   transform: scale(1.1);
 }
 
+
+/*** ABILITY CARD AGENT ***/
+
+#agent-abilities {
+.card-ability {
+  width: 200px; 
+  height: 250px; 
+  perspective: 1000px;
+  margin: 10px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.front, .back {
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.front {
+  background: #ff4655; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.back {
+  background: white; 
+  color: black;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-ability:hover .card {
+  transform: rotateY(180deg);
+}
+}
+
 /*** BTN LOGIN ***/
 
 #btn-valos {
@@ -472,3 +533,61 @@ body{
 
 
 /***RESULTS SEARCH ***/
+
+
+/*** LOADER ***/
+
+#loader {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 25, 35, 0.8);
+  z-index: 9999;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#loader .load {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%; /* Centre verticalement */
+  left: 50%; /* Centre horizontalement */
+  transform: translate(-50%, -50%);
+}
+
+#loader p {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: white;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+#loader .bg {
+  position: absolute;
+  background: #ff4655;
+  width: 0;
+  height: 100%;
+  z-index: 3;
+  transition: 0.3s ease-out all;
+  transform: skewX(-10deg);
+}
+
+#loader .base {
+  border: 1px solid #ff4655;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: skewX(-10deg);
+}
+
+#loader .text {
+  z-index: 5;
+  position: relative;
+  padding: 0 10px;
+}
+
+/*** CONTENT ***/

@@ -3,46 +3,44 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <div class="text-center mt-3">
+    <div class="container text-center mt-3">
         <h1>Register</h1>
     </div>
-    <div class="row">
-    <div class="col-lg-6">
-        <img src="{{ asset('picture/reyna-sf-valo.webp')}}" alt="image personnage reyna" class="img-fluid" loading="lazy">
-    </div>
-    <div class="col-lg-6">
-    <section class="mt-5">
-        <div class="container text-white">
-            {{ form_errors(registrationForm) }}
-
-            {# Démarrage du formulaire #}
-            {{ form_start(registrationForm) }}
-
-            {# Champs du formulaire #}
-            {{ form_row(registrationForm.email, { label: 'Email' }) }}
-            {{ form_row(registrationForm.plainPassword, { label: 'Password' }) }}
-			{{ form_row(registrationForm.PseudoValo, { label: 'PseudoValo' }) }}
-			{{ form_row(registrationForm.tag, { label: 'Tag' }) }}
-
-            {# Bouton personnalisé #}
-            <div class="form-group d-flex justify-content-center">
-                {# Désactivation du rendu automatique du bouton pour personnaliser le HTML #}
-                {{ form_widget(registrationForm.Register, {'attr': {'class': 'd-none'}}) }}
-
-                {# Bouton avec HTML personnalisé #}
-                <button type="submit" id="btn-valos" class="transparent">
-                    <p>
-                        <span class="bg"></span>
-                        <span class="base"></span>
-                        <span class="text">Register</span>
-                    </p>
-                </button>
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-lg-6">
+                <img src="{{ asset('picture/reyna-sf-valo.webp')}}" alt="image personnage reyna" class="img-fluid" loading="lazy">
             </div>
+            <div class="col-lg-6">
+                <section class="mt-5">
+                    <div class="container text-white">
+                        {{ form_errors(registrationForm) }}
 
-            {# Fermeture du formulaire #}
-            {{ form_end(registrationForm) }}
+                        {{ form_start(registrationForm) }}
+
+                        {{ form_row(registrationForm.email, { label: 'Email' }) }}
+                        {{ form_row(registrationForm.plainPassword, { label: 'Password' }) }}
+                        {{ form_row(registrationForm.PseudoValo, { label: 'PseudoValo' }) }}
+                        {{ form_row(registrationForm.tag, { label: 'Tag' }) }}
+                        <span>
+                            * Déjà membre ? <a href="{{ path('app_login') }}" class="text-decoration-none text-danger">Connectez-vous</a>
+                        </span>
+
+                        <div class="form-group d-flex justify-content-center">
+                            {{ form_widget(registrationForm.Register, {'attr': {'class': 'd-none'}}) }}
+                            <button type="submit" id="btn-valos" class="transparent">
+                                <p>
+                                    <span class="bg"></span>
+                                    <span class="base"></span>
+                                    <span class="text">Register</span>
+                                </p>
+                            </button>
+                        </div>
+
+                        {{ form_end(registrationForm) }}
+                    </div>
+                </section>
+            </div>
         </div>
-    </section>
-    </div>
     </div>
 {% endblock %}

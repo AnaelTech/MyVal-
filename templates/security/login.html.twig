@@ -37,6 +37,9 @@
                                 <div class="text-danger">{{ passwordError }}</div>
                             {% endif %}
                         </div>
+                        <span class="text-white">
+                            * Pas encore membre ? <a href="{{ path('app_register') }}" class="text-decoration-none text-danger">Inscrivez-vous</a>
+                        </span>
 
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                         
