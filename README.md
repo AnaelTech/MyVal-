@@ -39,6 +39,13 @@ Pour la récupération des données par l'API cela s'est plutôt bien passé ce 
 
 Je reste quand même satisfait de mon projet et pense le continuer en ajoutant du javascript par la suite ainsi que d'ameliorer la sécurité et le front.
 
+
+## VISUEL DU SITE
+
+![Capture Home MyVal](./public/picture/home-capture.png)
+![Capture Agents](./public/picture/agents-capture.png)
+![Capture User](./public/picture/user-capture.png)
+
 ## OUTILS 💻
 
 Voilà ce que j'ai utilisé pour ce projet : 
