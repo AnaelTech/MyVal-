@@ -376,10 +376,12 @@ body{
 
 #agent-abilities {
 .card-ability {
-  width: 200px; 
-  height: 250px; 
+  width: 250px; 
+  height: 300px; 
   perspective: 1000px;
   margin: 10px;
+  cursor: pointer;
+  border: none;
 }
 
 .card {
@@ -408,13 +410,27 @@ body{
 }
 
 .back {
-  background: white; 
-  color: black;
+  background:black; 
+  color: white;
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.back h4 {
+  padding-top: 10px;
+}
+
+.back p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 10px;
+  font-size: small;
 }
 
 .card-ability:hover .card {
