@@ -4,6 +4,44 @@
 
 Ceci est mon projet symfony, MyVal qui reprends les données de deux API afin d'avoir les données des agents voici celles-ci : https://valorant-api.com Et celle pour recupérer les données de l'utilisateurs avec leur Pseudo et tag voici l'autre : https://api.henrikdev.xyz/
 
+## Installation locale
+
+Pour exécuter ce projet en local, suivez les étapes ci-dessous :
+
+### Prérequis
+- **PHP 8.1 ou supérieur**
+- **Composer** : [Installation de Composer](https://getcomposer.org/download/)
+- **Symfony CLI** : [Installation de Symfony CLI](https://symfony.com/download)
+- **Base de données MySQL**
+
+### Étapes
+1. **Clonez le dépôt :**
+   ```bash
+   git clone https://github.com/AnaelTech/MyVal-.git
+   cd MyVal-
+   ```
+2. **Installez les dépendances :**
+   ```bash
+   composer install
+   ```
+3. **Configurez les variables d'environnement :**
+   .env.local : 
+   ```bash
+    DATABASE_URL="mysql://username:password@127.0.0.1:3306/nom_de_la_base"
+    ```
+4. **Créer la base de données :**
+   ```bash
+   php bin/console doctrine:database:create
+    php bin/console doctrine:migrations:migrate
+    ```
+5. **Démarrer le serveur :**
+   ```bash
+   symfony server:start
+   ```
+6. **Accéder à l'interface :**
+   http://localhost:8000
+
+
 ## CONFIGURATION ⚙️
 
 Vous trouverez dans le dossier DataFixtures des données pré-configurés
