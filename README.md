@@ -1,8 +1,9 @@
 # BIENVENUE SUR MYVAL
 
-[!CAUTION]
-⚠️ Lors de la connexion une erreur va apparaitre ceci est du à un changement de donnée de l'API il n'envoient plus les cards du user
-Ceci est mon projet symfony, MyVal qui reprends les données de deux API afin d'avoir les données des agents voici celles-ci : https://valorant-api.com Et celle pour recupérer les données de l'utilisateurs avec leur Pseudo et tag voici l'autre : https://api.henrikdev.xyz/
+> [!CAUTION]
+> ⚠️ Lors de la connexion, une erreur va apparaître. Ceci est dû à un changement de données de l'API : ils n'envoient plus les cartes de l'utilisateur.
+>
+> Ceci est mon projet Symfony, MyVal, qui reprend les données de deux API afin d'obtenir les informations des agents. Voici celles-ci : [Valorant API](https://valorant-api.com) et celle pour récupérer les données des utilisateurs avec leur pseudo et tag : [Henrikdev API](https://api.henrikdev.xyz/).
 
 ## Installation locale
 
